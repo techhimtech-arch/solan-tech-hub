@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
-const reviews = [
+type Review = { name: string; role: string; text: string };
+const reviews: Review[] = [
   { name: "Aman Sharma", role: "Solan", text: "Best mobile shop in Solan! Got my iPhone at the best price with a free gift. Rinku ji is very helpful." },
   { name: "Priya Thakur", role: "Bajoral", text: "Genuine products and amazing customer service. I always recommend Unique Communication to my friends." },
   { name: "Rahul Verma", role: "Kandaghat", text: "Fast screen replacement, same-day delivery. Trustworthy team and reasonable pricing." },
@@ -35,7 +36,7 @@ export function Reviews() {
   );
 }
 
-function Row({ reviews, duration, reverse }: { reviews: typeof reviews; duration: number; reverse?: boolean }) {
+function Row({ reviews, duration, reverse }: { reviews: Review[]; duration: number; reverse?: boolean }) {
   return (
     <div className="overflow-hidden">
       <motion.div
